@@ -1,0 +1,35 @@
+sasha@sasha-linux:~$ history
+    1  sudo apt update
+    2  Linux-2023
+    3  sudo apt update
+    4  sudo apt install mc
+    5  sudo apt install openssh-server
+    6  ip a
+    7  systemctl status ssh
+    8  ip a
+    9  mc
+   10  systemctl status ssh
+   11  sudo apt update
+   12  sudo apt install gcc make perl
+   13  sudo reboot
+   14  sudo usermod -aG vboxsf sasha
+   15  history
+sasha@sasha-linux:~$ uname -a
+Linux sasha-linux 6.2.0-34-generic #34~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Sep  7 13:12:03 UTC 2 x86_64 x86_64 x86_64 GNU/Linux
+sasha@sasha-linux:~$ hostnamectl
+ Static hostname: sasha-linux
+       Icon name: computer-vm
+         Chassis: vm
+      Machine ID: 1439e492481242d690852de855da8c7c
+         Boot ID: cdb9b66dde204b4c9e7aa0f57ec2d019
+  Virtualization: oracle
+Operating System: Ubuntu 22.04.3 LTS              
+          Kernel: Linux 6.2.0-34-generic
+    Architecture: x86-64
+ Hardware Vendor: innotek GmbH
+  Hardware Model: VirtualBox
+sasha@sasha-linux:~$ hostname -I
+10.0.2.15 
+sasha@sasha-linux:~$ hostname -i
+127.0.1.1
+sasha@sasha-linux:~$ 
