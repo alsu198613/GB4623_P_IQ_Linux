@@ -1,0 +1,105 @@
+student@Ubuntu-MySQL-VirtualBox:/home$ sudo adduser new_user
+[sudo] пароль для student: 
+Добавляется пользователь «new_user» ...
+Добавляется новая группа «new_user» (1001) ...
+Добавляется новый пользователь «new_user» (1001) в группу «new_user» ...
+Создаётся домашний каталог «/home/new_user» ...
+Копирование файлов из «/etc/skel» ...
+Введите новый пароль UNIX: 
+Повторите ввод нового пароля UNIX: 
+passwd: пароль успешно обновлён
+Изменение информации о пользователе new_user
+Введите новое значение или нажмите ENTER для выбора значения по умолчанию
+	Полное имя []: 
+	Номер комнаты []: 
+	Рабочий телефон []: 
+	Домашний телефон []: 
+	Другое []: 
+Данная информация корректна? [Y/n] y
+student@Ubuntu-MySQL-VirtualBox:/home$ tail /etc/passwd
+kernoops:x:116:65534:Kernel Oops Tracking Daemon,,,:/:/bin/false
+pulse:x:117:124:PulseAudio daemon,,,:/var/run/pulse:/bin/false
+rtkit:x:118:126:RealtimeKit,,,:/proc:/bin/false
+saned:x:119:127::/var/lib/saned:/bin/false
+usbmux:x:120:46:usbmux daemon,,,:/var/lib/usbmux:/bin/false
+student:x:1000:1000:student,,,:/home/student:/bin/bash
+vboxadd:x:999:1::/var/run/vboxadd:/bin/false
+mysql:x:121:129:MySQL Server,,,:/nonexistent:/bin/false
+sshd:x:122:65534::/var/run/sshd:/usr/sbin/nologin
+new_user:x:1001:1001:,,,:/home/new_user:/bin/bash
+student@Ubuntu-MySQL-VirtualBox:/home$ sudo userdel -fr new_user
+userdel: почтовый ящик new_user (/var/mail/new_user) не найден
+student@Ubuntu-MySQL-VirtualBox:/home$ tail /etc/passwd
+hplip:x:115:7:HPLIP system user,,,:/var/run/hplip:/bin/false
+kernoops:x:116:65534:Kernel Oops Tracking Daemon,,,:/:/bin/false
+pulse:x:117:124:PulseAudio daemon,,,:/var/run/pulse:/bin/false
+rtkit:x:118:126:RealtimeKit,,,:/proc:/bin/false
+saned:x:119:127::/var/lib/saned:/bin/false
+usbmux:x:120:46:usbmux daemon,,,:/var/lib/usbmux:/bin/false
+student:x:1000:1000:student,,,:/home/student:/bin/bash
+vboxadd:x:999:1::/var/run/vboxadd:/bin/false
+mysql:x:121:129:MySQL Server,,,:/nonexistent:/bin/false
+sshd:x:122:65534::/var/run/sshd:/usr/sbin/nologin
+student@Ubuntu-MySQL-VirtualBox:/home$ sudo groupadd new_group
+student@Ubuntu-MySQL-VirtualBox:/home$ tail /etc/group
+colord:x:123:
+pulse:x:124:
+pulse-access:x:125:
+rtkit:x:126:
+saned:x:127:
+student:x:1000:
+sambashare:x:128:student
+vboxsf:x:999:
+mysql:x:129:
+new_group:x:1001:
+student@Ubuntu-MySQL-VirtualBox:/home$ cd student/
+student@Ubuntu-MySQL-VirtualBox:~$ pwd
+/home/student
+student@Ubuntu-MySQL-VirtualBox:~$ cd ..
+student@Ubuntu-MySQL-VirtualBox:/home$ groups student
+student : student adm cdrom sudo dip plugdev lpadmin sambashare
+student@Ubuntu-MySQL-VirtualBox:/home$ sudo adduser user2
+Добавляется пользователь «user2» ...
+Добавляется новая группа «user2» (1002) ...
+Добавляется новый пользователь «user2» (1001) в группу «user2» ...
+Домашний каталог «/home/user2» уже существует. Не копируется из «/etc/skel».
+adduser: Внимание: данный домашний каталог `/home/user2' не принадлежит пользователю, которого вы сейчас создаете
+Введите новый пароль UNIX: 
+Повторите ввод нового пароля UNIX: 
+passwd: пароль успешно обновлён
+Изменение информации о пользователе user2
+Введите новое значение или нажмите ENTER для выбора значения по умолчанию
+	Полное имя []: 
+	Номер комнаты []: 
+	Рабочий телефон []: 
+	Домашний телефон []: 
+	Другое []: 
+Данная информация корректна? [Y/n] 
+student@Ubuntu-MySQL-VirtualBox:/home$ tail /etc/passwd
+kernoops:x:116:65534:Kernel Oops Tracking Daemon,,,:/:/bin/false
+pulse:x:117:124:PulseAudio daemon,,,:/var/run/pulse:/bin/false
+rtkit:x:118:126:RealtimeKit,,,:/proc:/bin/false
+saned:x:119:127::/var/lib/saned:/bin/false
+usbmux:x:120:46:usbmux daemon,,,:/var/lib/usbmux:/bin/false
+student:x:1000:1000:student,,,:/home/student:/bin/bash
+vboxadd:x:999:1::/var/run/vboxadd:/bin/false
+mysql:x:121:129:MySQL Server,,,:/nonexistent:/bin/false
+sshd:x:122:65534::/var/run/sshd:/usr/sbin/nologin
+user2:x:1001:1002:,,,:/home/user2:/bin/bash
+student@Ubuntu-MySQL-VirtualBox:/home$ groups user2
+user2 : user2
+student@Ubuntu-MySQL-VirtualBox:/home$ sudo usermod -aG new_group user2
+student@Ubuntu-MySQL-VirtualBox:/home$ groups user2
+user2 : user2 new_group
+student@Ubuntu-MySQL-VirtualBox:/home$ sudo usermod -aG sudo user2
+student@Ubuntu-MySQL-VirtualBox:/home$ groups user2
+user2 : user2 sudo new_group
+student@Ubuntu-MySQL-VirtualBox:/home$ sudo deluser user2 sudo
+Удаляется пользователь «user2» из группы «sudo» ...
+Готово.
+student@Ubuntu-MySQL-VirtualBox:/home$ groups user2
+user2 : user2 new_group
+student@Ubuntu-MySQL-VirtualBox:/home$ 
+
+
+

@@ -1,0 +1,126 @@
+student@Ubuntu-MySQL-VirtualBox:~$ cd lws
+student@Ubuntu-MySQL-VirtualBox:~/lws$ echo > test.txt
+lesson2  test.txt
+student@Ubuntu-MySQL-VirtualBox:~/lws$ cat /etc/* 1>etc.txt 2>errors.txt
+student@Ubuntu-MySQL-VirtualBox:~/lws$ ls
+errors.txt  etc.txt  lesson2  test.txt
+student@Ubuntu-MySQL-VirtualBox:~/lws$ 
+
+
+student@Ubuntu-MySQL-VirtualBox:~/lws$ sudo systemctl enable ssh
+[sudo] пароль для student: 
+Synchronizing state of ssh.service with SysV init with /lib/systemd/systemd-sysv-install...
+Executing /lib/systemd/systemd-sysv-install enable ssh
+student@Ubuntu-MySQL-VirtualBox:~/lws$ sudo systemctl start ssh
+student@Ubuntu-MySQL-VirtualBox:~/lws$ systemctl status sshd
+● ssh.service - OpenBSD Secure Shell server
+   Loaded: loaded (/lib/systemd/system/ssh.service; enabled; vendor preset: enab
+   Active: active (running) since Пн 2022-05-02 07:48:16 MSK; 37min ago
+ Main PID: 799 (sshd)
+   CGroup: /system.slice/ssh.service
+           └─799 /usr/sbin/sshd -D
+
+май 02 07:48:29 Ubuntu-MySQL-VirtualBox sshd[799]: Received SIGHUP; restarting.
+май 02 07:48:29 Ubuntu-MySQL-VirtualBox systemd[1]: Reloaded OpenBSD Secure Shel
+май 02 07:48:30 Ubuntu-MySQL-VirtualBox sshd[799]: Server listening on 0.0.0.0 p
+май 02 07:48:30 Ubuntu-MySQL-VirtualBox sshd[799]: Server listening on :: port 2
+май 02 07:48:40 Ubuntu-MySQL-VirtualBox systemd[1]: Reloading OpenBSD Secure She
+май 02 07:48:40 Ubuntu-MySQL-VirtualBox sshd[799]: Received SIGHUP; restarting.
+май 02 07:48:40 Ubuntu-MySQL-VirtualBox systemd[1]: Reloaded OpenBSD Secure Shel
+май 02 07:48:40 Ubuntu-MySQL-VirtualBox sshd[799]: Server listening on 0.0.0.0 p
+май 02 07:48:40 Ubuntu-MySQL-VirtualBox sshd[799]: Server listening on :: port 2
+май 02 08:25:29 Ubuntu-MySQL-VirtualBox systemd[1]: Started OpenBSD Secure Shell
+lines 1-17/17 (END)
+student@Ubuntu-MySQL-VirtualBox:~/lws$ hostname -I
+192.168.1.73 2a00:1370:8186:2b56:6389:3ae1:69d3:40af fda5:efae:1ee8:1:21a8:7e15:7052:1975 fda5:efae:1ee8:1:f954:8255:619b:b02e 2a00:1370:8186:2b56:21a8:7e15:7052:1975 2a00:1370:8186:2b56:31ec:12ce:2f80:869c 
+student@Ubuntu-MySQL-VirtualBox:~/lws$ ip addr
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 08:00:27:73:27:a8 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.73/24 brd 192.168.1.255 scope global dynamic enp0s3
+       valid_lft 84053sec preferred_lft 84053sec
+    inet6 2a00:1370:8186:2b56:6389:3ae1:69d3:40af/128 scope global dynamic 
+       valid_lft 356sec preferred_lft 356sec
+    inet6 fda5:efae:1ee8:1:21a8:7e15:7052:1975/64 scope global temporary dynamic 
+       valid_lft 52sec preferred_lft 52sec
+    inet6 fda5:efae:1ee8:1:f954:8255:619b:b02e/64 scope global mngtmpaddr noprefixroute dynamic 
+       valid_lft 52sec preferred_lft 52sec
+    inet6 2a00:1370:8186:2b56:21a8:7e15:7052:1975/64 scope global temporary dynamic 
+       valid_lft 52sec preferred_lft 52sec
+    inet6 2a00:1370:8186:2b56:31ec:12ce:2f80:869c/64 scope global mngtmpaddr noprefixroute dynamic 
+       valid_lft 52sec preferred_lft 52sec
+    inet6 fe80::6f3b:940f:2721:eb9b/64 scope link 
+       valid_lft forever preferred_lft forever
+
+Using username "student".
+student@192.168.1.73's password:
+Welcome to Ubuntu 16.04.7 LTS (GNU/Linux 4.15.0-142-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+UA Infra: Extended Security Maintenance (ESM) is not enabled.
+
+0 updates can be applied immediately.
+
+169 additional security updates can be applied with UA Infra: ESM
+Learn more about enabling UA Infra: ESM service for Ubuntu 16.04 at
+https://ubuntu.com/16-04
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+Last login: Sat Apr 30 08:42:11 2022 from 10.100.100.181
+student@Ubuntu-MySQL-VirtualBox:~$ hostname -I
+192.168.1.73 2a00:1370:8186:2b56:6389:3ae1:69d3:40af fda5:efae:1ee8:1:21a8:7e15:7052:1975 fda5:efae:1ee8:1:f954:8255:619b:b02e 2a00:1370:8186:2b56:21a8:7e15:7052:1975 2a00:1370:8186:2b56:31ec:12ce:2f80:869c
+student@Ubuntu-MySQL-VirtualBox:~$ whoami
+student
+student@Ubuntu-MySQL-VirtualBox:~$ sudo nano /etc/ssh/sshd_config
+[sudo] пароль для student:
+student@Ubuntu-MySQL-VirtualBox:~$ systemctl restart sshd
+==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
+Чтобы перезапустить «ssh.service», необходимо пройти аутентификацию.
+Authenticating as: student,,, (student)
+Password:
+polkit-agent-helper-1: pam_authenticate failed: Authentication failure
+==== AUTHENTICATION FAILED ===
+Failed to restart sshd.service: Access denied
+See system logs and 'systemctl status sshd.service' for details.
+student@Ubuntu-MySQL-VirtualBox:~$ sudo nano /etc/ssh/sshd_config
+student@Ubuntu-MySQL-VirtualBox:~$ systemctl reload sshd
+==== AUTHENTICATING FOR org.freedesktop.systemd1.manage-units ===
+Чтобы заставить «ssh.service» перечитать конфигурацию, необходимо пройти аутентификацию.
+Authenticating as: student,,, (student)
+Password:
+==== AUTHENTICATION COMPLETE ===
+Job for ssh.service failed because the control process exited with error code. See "systemctl status ssh.service" and "journalctl -xe" for details.
+student@Ubuntu-MySQL-VirtualBox:~$
+
+sudo systemctl restart ssh # --->>> PID поменяется
+sudo systemctl reload ssh # --->>> PID не поменяется (reload перечитывает файл конфигурации)
+
+student@Ubuntu-MySQL-VirtualBox:~/lws$ cat > new_file.txt
+1
+2
+3
+4
+student@Ubuntu-MySQL-VirtualBox:~/lws$ cat new_file.txt
+1
+2
+3
+4
+student@Ubuntu-MySQL-VirtualBox:~/lws$ # CTRL + d # для выхода (сигнал EOF - end of file)
+
+student@Ubuntu-MySQL-VirtualBox:~$ ps aux | grep mc
+student   2014  0.0  0.3  63276  8076 pts/18   Ss+  21:31   0:00 mc
+student   2136  0.0  0.0  15472   968 pts/17   S+   21:36   0:00 grep --color=auto mc
+student@Ubuntu-MySQL-VirtualBox:~$ kill -s 9 2014
+student@Ubuntu-MySQL-VirtualBox:~$ 
+
+

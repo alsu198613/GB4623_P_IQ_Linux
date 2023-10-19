@@ -1,0 +1,119 @@
+# 1
+student@Ubuntu-MySQL-VirtualBox:~/lws$ echo 'hello world!' > file1
+student@Ubuntu-MySQL-VirtualBox:~/lws$ cat file1
+hello world!
+student@Ubuntu-MySQL-VirtualBox:~/lws$ cp file1 file2
+student@Ubuntu-MySQL-VirtualBox:~/lws$ tree
+.
+├── file1
+├── file2
+└── lesson2
+    └── myfile.txt
+
+1 directory, 3 files
+student@Ubuntu-MySQL-VirtualBox:~/lws$ ln -s file1 file3
+student@Ubuntu-MySQL-VirtualBox:~/lws$ tree
+.
+├── file1
+├── file2
+├── file3 -> file1
+└── lesson2
+    └── myfile.txt
+
+1 directory, 4 files
+student@Ubuntu-MySQL-VirtualBox:~/lws$ ln file1 file4
+student@Ubuntu-MySQL-VirtualBox:~/lws$ tree
+.
+├── file1
+├── file2
+├── file3 -> file1
+├── file4
+└── lesson2
+    └── myfile.txt
+
+1 directory, 5 files
+student@Ubuntu-MySQL-VirtualBox:~/lws$ ls -li
+итого 16
+680098 -rw-rw-r-- 2 student student   13 май 15 21:59 file1
+680170 -rw-rw-r-- 1 student student   13 май 15 21:59 file2
+680402 lrwxrwxrwx 1 student student    5 май 15 22:01 file3 -> file1
+680098 -rw-rw-r-- 2 student student   13 май 15 21:59 file4
+687551 drwxrwxr-x 2 student student 4096 апр 29 12:59 lesson2
+student@Ubuntu-MySQL-VirtualBox:~/lws$ rm file1
+student@Ubuntu-MySQL-VirtualBox:~/lws$ ls -li
+итого 12
+680170 -rw-rw-r-- 1 student student   13 май 15 21:59 file2
+680402 lrwxrwxrwx 1 student student    5 май 15 22:01 file3 -> file1
+680098 -rw-rw-r-- 1 student student   13 май 15 21:59 file4
+687551 drwxrwxr-x 2 student student 4096 апр 29 12:59 lesson2
+student@Ubuntu-MySQL-VirtualBox:~/lws$ # символическая ссылка сломалась
+student@Ubuntu-MySQL-VirtualBox:~/lws$ # жесткая ссылка работает
+student@Ubuntu-MySQL-VirtualBox:~/lws$ # копия осталась без изменений
+student@Ubuntu-MySQL-VirtualBox:~/lws$ cat file2
+hello world!
+student@Ubuntu-MySQL-VirtualBox:~/lws$ cat file3
+cat: file3: Нет такого файла или каталога
+student@Ubuntu-MySQL-VirtualBox:~/lws$ cat file4
+hello world!
+student@Ubuntu-MySQL-VirtualBox:~/lws$ 
+
+# 2
+student@Ubuntu-MySQL-VirtualBox:~/lws$ mv file2 file2_1
+student@Ubuntu-MySQL-VirtualBox:~/lws$ mv file4 file4_1
+student@Ubuntu-MySQL-VirtualBox:~/lws$ tree
+.
+├── file2_1
+├── file3 -> file1
+├── file4_1
+└── lesson2
+    └── myfile.txt
+
+1 directory, 4 files
+student@Ubuntu-MySQL-VirtualBox:~/lws$ ln -s file2_1 f2_1_softlink
+student@Ubuntu-MySQL-VirtualBox:~/lws$ ln -s file4_1 f4_1_softlink
+student@Ubuntu-MySQL-VirtualBox:~/lws$ tree
+.
+├── f2_1_softlink -> file2_1
+├── f4_1_softlink -> file4_1
+├── file2_1
+├── file3 -> file1
+├── file4_1
+└── lesson2
+    └── myfile.txt
+
+1 directory, 6 files
+student@Ubuntu-MySQL-VirtualBox:~/lws$ mkdir lesson5
+student@Ubuntu-MySQL-VirtualBox:~/lws$ mv f4_1_softlink lesson5/
+student@Ubuntu-MySQL-VirtualBox:~/lws$ mv f2_1_softlink lesson5/
+student@Ubuntu-MySQL-VirtualBox:~/lws$ tree
+.
+├── file2_1
+├── file3 -> file1
+├── file4_1
+├── lesson2
+│   └── myfile.txt
+└── lesson5
+    ├── f2_1_softlink -> file2_1
+    └── f4_1_softlink -> file4_1
+
+2 directories, 6 files
+student@Ubuntu-MySQL-VirtualBox:~/lws$ 
+
+# 3
+student@Ubuntu-MySQL-VirtualBox:~/lws$ echo "first file" > file1
+student@Ubuntu-MySQL-VirtualBox:~/lws$ echo "second file" > file2
+student@Ubuntu-MySQL-VirtualBox:~/lws$ ls
+file1  file2  file2_1  file3  file4_1  lesson2  lesson5
+student@Ubuntu-MySQL-VirtualBox:~/lws$ chmod 664 file1
+student@Ubuntu-MySQL-VirtualBox:~/lws$ chmod u=rw,g-rw,o-r file2
+student@Ubuntu-MySQL-VirtualBox:~/lws$ ls -l
+итого 24
+-rw-rw-r-- 1 student student   11 май 18 21:41 file1
+-rw------- 1 student student   12 май 18 21:41 file2
+-rw-rw-r-- 1 student student   13 май 15 21:59 file2_1
+lrwxrwxrwx 1 student student    5 май 15 22:01 file3 -> file1
+-rw-rw-r-- 1 student student   13 май 15 21:59 file4_1
+drwxrwxr-x 2 student student 4096 апр 29 12:59 lesson2
+drwxrwxr-x 2 student student 4096 май 16 21:33 lesson5
+student@Ubuntu-MySQL-VirtualBox:~/lws$ 
+

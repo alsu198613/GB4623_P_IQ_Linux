@@ -1,0 +1,80 @@
+# 1
+tudent@Ubuntu-MySQL-VirtualBox:~$ curl -fsSL https://nginx.org/keys/nginx_signing.key | sudo apt-key add -
+Программа 'curl' на данный момент не установлена. Вы можете установить её, выполнив:
+sudo apt install curl
+gpg: не найдено данных формата OpenPGP.
+student@Ubuntu-MySQL-VirtualBox:~$ sudo apt install curl
+Чтение списков пакетов… Готово
+Построение дерева зависимостей       
+Чтение информации о состоянии… Готово
+Пакет curl — виртуальный, его функции предоставляются пакетами:
+  curl:i386 7.47.0-1ubuntu2.19+esm3 [Не версия-кандидат]
+
+E: Для пакета «curl» не найден кандидат на установку
+student@Ubuntu-MySQL-VirtualBox:~$ sudo apt update
+Ошб:1 https://dbeaver.io/debs/dbeaver-ce  InRelease                            
+  Could not resolve host: dbeaver.io
+Ошб:2 https://esm.ubuntu.com/infra/ubuntu xenial-infra-security InRelease      
+  Could not resolve host: esm.ubuntu.com
+Ошб:3 https://esm.ubuntu.com/infra/ubuntu xenial-infra-updates InRelease       
+  Could not resolve host: esm.ubuntu.com
+Ошб:4 http://old-releases.ubuntu.com/ubuntu xenial InRelease                   
+  Временная ошибка при разрешении «old-releases.ubuntu.com»
+Ошб:5 http://ppa.launchpad.net/linuxuprising/java/ubuntu xenial InRelease      
+  Временная ошибка при разрешении «ppa.launchpad.net»
+Ошб:6 http://old-releases.ubuntu.com/ubuntu xenial-updates InRelease           
+  Временная ошибка при разрешении «old-releases.ubuntu.com»
+Ошб:7 http://ppa.launchpad.net/webupd8team/java/ubuntu xenial InRelease        
+  Временная ошибка при разрешении «ppa.launchpad.net»
+Ошб:8 http://old-releases.ubuntu.com/ubuntu xenial-backports InRelease         
+  Временная ошибка при разрешении «old-releases.ubuntu.com»
+Ошб:9 http://old-releases.ubuntu.com/ubuntu xenial-security InRelease
+  Временная ошибка при разрешении «old-releases.ubuntu.com»
+Чтение списков пакетов… Готово                      
+Построение дерева зависимостей       
+Чтение информации о состоянии… Готово
+Может быть обновлён 1 пакет. Запустите «apt list --upgradable» для показа.
+W: Не удалось получить http://old-releases.ubuntu.com/ubuntu/dists/xenial/InRelease  Временная ошибка при разрешении «old-releases.ubuntu.com»
+W: Не удалось получить http://old-releases.ubuntu.com/ubuntu/dists/xenial-updates/InRelease  Временная ошибка при разрешении «old-releases.ubuntu.com»
+W: Не удалось получить http://old-releases.ubuntu.com/ubuntu/dists/xenial-backports/InRelease  Временная ошибка при разрешении «old-releases.ubuntu.com»
+W: Не удалось получить http://old-releases.ubuntu.com/ubuntu/dists/xenial-security/InRelease  Временная ошибка при разрешении «old-releases.ubuntu.com»
+W: Не удалось получить https://dbeaver.io/debs/dbeaver-ce/InRelease  Could not resolve host: dbeaver.io
+W: Не удалось получить http://ppa.launchpad.net/linuxuprising/java/ubuntu/dists/xenial/InRelease  Временная ошибка при разрешении «ppa.launchpad.net»
+W: Не удалось получить https://esm.ubuntu.com/infra/ubuntu/dists/xenial-infra-security/InRelease  Could not resolve host: esm.ubuntu.com
+W: Не удалось получить https://esm.ubuntu.com/infra/ubuntu/dists/xenial-infra-updates/InRelease  Could not resolve host: esm.ubuntu.com
+W: Не удалось получить http://ppa.launchpad.net/webupd8team/java/ubuntu/dists/xenial/InRelease  Временная ошибка при разрешении «ppa.launchpad.net»
+W: Некоторые индексные файлы скачать не удалось. Они были проигнорированы, или вместо них были использованы старые версии.
+student@Ubuntu-MySQL-VirtualBox:~$ sudo apt install -y nginx
+Чтение списков пакетов… Готово
+Построение дерева зависимостей       
+Чтение информации о состоянии… Готово
+Пакет nginx — виртуальный, его функции предоставляются пакетами:
+  nginx-light 1.10.3-0ubuntu0.16.04.5+esm3 [Не версия-кандидат]
+  nginx-full 1.10.3-0ubuntu0.16.04.5+esm3 [Не версия-кандидат]
+  nginx-extras 1.10.3-0ubuntu0.16.04.5+esm3 [Не версия-кандидат]
+  nginx-core 1.10.3-0ubuntu0.16.04.5+esm3 [Не версия-кандидат]
+
+E: Для пакета «nginx» не найден кандидат на установку
+student@Ubuntu-MySQL-VirtualBox:~$ sudo dpkg -r nginx
+dpkg: предупреждение: игнорируется запрос на удаление неустановленного пакета nginx
+student@Ubuntu-MySQL-VirtualBox:~$ 
+
+# 2
+student@Ubuntu-MySQL-VirtualBox:~$ sudo apt-get install mc
+Чтение списков пакетов… Готово
+Построение дерева зависимостей       
+Чтение информации о состоянии… Готово
+Уже установлен пакет mc самой новой версии (3:4.8.15-2).
+Следующие пакеты устанавливались автоматически и больше не требуются:
+  libevent-core-2.0-5 linux-headers-4.15.0-45 linux-headers-4.15.0-45-generic
+  linux-image-4.15.0-45-generic linux-modules-4.15.0-45-generic
+  linux-modules-extra-4.15.0-45-generic snapd-login-service
+Для их удаления используйте «sudo apt autoremove».
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 1 пакетов не обновлено.
+
+
+
+# 3
+student@Ubuntu-MySQL-VirtualBox:~$ sudo iptables -P INPUT DROP
+student@Ubuntu-MySQL-VirtualBox:~$ sudo iptables -A INPUT -i eth0 -p tcp --dport 80 -j ACCEPT
+student@Ubuntu-MySQL-VirtualBox:~$ sudo iptables -A INPUT -i eth0 -p tcp --dport 22 -j ACCEPT

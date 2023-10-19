@@ -1,0 +1,185 @@
+PS C:\Users\Александра> ssh student@10.100.100.182
+student@10.100.100.182's password:
+Welcome to Ubuntu 16.04.6 LTS (GNU/Linux 4.15.0-47-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+464 packages can be updated.
+405 updates are security updates.
+
+New release '18.04.6 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Last login: Fri Apr 29 10:54:04 2022 from 10.100.100.181
+student@Ubuntu-MySQL-VirtualBox:~$ uname
+Linux
+student@Ubuntu-MySQL-VirtualBox:~$ hostname
+Ubuntu-MySQL-VirtualBox
+student@Ubuntu-MySQL-VirtualBox:~$ hostnamectl
+   Static hostname: Ubuntu-MySQL-VirtualBox
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: 6917807b2dca43d681d86ffe5ca8e5d1
+           Boot ID: 9a10b8d4106445639868c31d2e927fa5
+    Virtualization: oracle
+  Operating System: Ubuntu 16.04.6 LTS
+            Kernel: Linux 4.15.0-47-generic
+      Architecture: x86-64
+student@Ubuntu-MySQL-VirtualBox:~$ hostname -I
+10.100.100.182
+student@Ubuntu-MySQL-VirtualBox:~$
+
+student@Ubuntu-MySQL-VirtualBox:~$ pwd
+/home/student
+student@Ubuntu-MySQL-VirtualBox:~$ mkdir students mentors
+student@Ubuntu-MySQL-VirtualBox:~$ ls
+examples.desktop  mentors   Видео      Загрузки     Музыка         Рабочий стол
+lws               students  Документы  Изображения  Общедоступные  Шаблоны
+student@Ubuntu-MySQL-VirtualBox:~$ cd students/
+student@Ubuntu-MySQL-VirtualBox:~/students$ touch students_list.txt
+student@Ubuntu-MySQL-VirtualBox:~/students$ cd ..
+student@Ubuntu-MySQL-VirtualBox:~$ cd mentors/
+student@Ubuntu-MySQL-VirtualBox:~/mentors$ touch mentors_list.txt
+student@Ubuntu-MySQL-VirtualBox:~/mentors$ cd ..
+student@Ubuntu-MySQL-VirtualBox:~$ tree
+.
+├── examples.desktop
+├── lws
+│   └── lesson2
+│       └── myfile.txt
+├── mentors
+│   └── mentors_list.txt
+├── students
+│   └── students_list.txt
+├── Видео
+├── Документы
+├── Загрузки
+├── Изображения
+├── Музыка
+├── Общедоступные
+├── Рабочий стол
+└── Шаблоны
+
+12 directories, 4 files
+student@Ubuntu-MySQL-VirtualBox:~$ pwd
+/home/student
+student@Ubuntu-MySQL-VirtualBox:~$ cd mentors/
+student@Ubuntu-MySQL-VirtualBox:~/mentors$ vim mentors_list.txt 
+student@Ubuntu-MySQL-VirtualBox:~/mentors$ more mentors_list.txt 
+Alena Tektova
+Елена Федотова
+АлексейОлегович Сарнавский
+
+student@Ubuntu-MySQL-VirtualBox:~/mentors$ cd ..
+student@Ubuntu-MySQL-VirtualBox:~$ cd students/
+student@Ubuntu-MySQL-VirtualBox:~/students$ vim students_list.txt 
+student@Ubuntu-MySQL-VirtualBox:~/students$ more students_list.txt 
+Андрей Саюров
+Александр Вильянов
+Роман Бабаян
+Максим Заиченко
+Дмитрий Пчелин
+Татьяна Ласкина
+МарияМихаиловна Князева
+Юлия Титова
+Азат Иксанов
+АсхатЖумагазыевич Сатеков
+Анатолий Савенко
+Константин Снигирев
+Эмиль Файзуллин
+Дмитрий Бачинин
+Злата Пожарская
+МихаилАлексеевич Давыдов
+Никита Курдин
+Наталья Махнач
+Михаил Прокин
+Хачатур Мовсесян
+Илья Хухров
+Виталий Крипак
+Бугрова Ольга
+Вера Маркосян
+Nurzhan Kushekbayev
+Евгений Александрович Жданов
+Михаил Даниленко
+Татьяна Александрова
+Денис Смирнов
+Александр Ушакевич
+ЮрийАлександрович Зиновьев
+Денис Тузов
+
+student@Ubuntu-MySQL-VirtualBox:~/students$ 
+student@Ubuntu-MySQL-VirtualBox:~/students$ cd ..
+student@Ubuntu-MySQL-VirtualBox:~$ cd mentors/
+student@Ubuntu-MySQL-VirtualBox:~/mentors$ mv mentors_list.txt /home/student/students/
+student@Ubuntu-MySQL-VirtualBox:~/mentors$ cd ..
+student@Ubuntu-MySQL-VirtualBox:~$ tree
+.
+├── examples.desktop
+├── lws
+│   └── lesson2
+│       └── myfile.txt
+├── mentors
+├── students
+│   ├── mentors_list.txt
+│   └── students_list.txt
+├── Видео
+├── Документы
+├── Загрузки
+├── Изображения
+├── Музыка
+├── Общедоступные
+├── Рабочий стол
+└── Шаблоны
+
+12 directories, 4 files
+student@Ubuntu-MySQL-VirtualBox:~$ 
+student@Ubuntu-MySQL-VirtualBox:~$ rm mentors/ -r
+student@Ubuntu-MySQL-VirtualBox:~$ ls
+examples.desktop  students  Документы  Изображения  Общедоступные  Шаблоны
+lws               Видео     Загрузки   Музыка       Рабочий стол
+student@Ubuntu-MySQL-VirtualBox:~$ mv students students_and_mentors
+student@Ubuntu-MySQL-VirtualBox:~$ ls
+examples.desktop      Видео      Изображения    Рабочий стол
+lws                   Документы  Музыка         Шаблоны
+students_and_mentors  Загрузки   Общедоступные
+student@Ubuntu-MySQL-VirtualBox:~$ tree
+.
+├── examples.desktop
+├── lws
+│   └── lesson2
+│       └── myfile.txt
+├── students_and_mentors
+│   ├── mentors_list.txt
+│   └── students_list.txt
+├── Видео
+├── Документы
+├── Загрузки
+├── Изображения
+├── Музыка
+├── Общедоступные
+├── Рабочий стол
+└── Шаблоны
+
+11 directories, 4 files
+student@Ubuntu-MySQL-VirtualBox:~$ rm students_and_mentors/ -r
+student@Ubuntu-MySQL-VirtualBox:~$ tree
+.
+├── examples.desktop
+├── lws
+│   └── lesson2
+│       └── myfile.txt
+├── Видео
+├── Документы
+├── Загрузки
+├── Изображения
+├── Музыка
+├── Общедоступные
+├── Рабочий стол
+└── Шаблоны
+
+10 directories, 2 files
+student@Ubuntu-MySQL-VirtualBox:~$ 
+
+

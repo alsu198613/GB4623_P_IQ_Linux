@@ -1,0 +1,43 @@
+student@Ubuntu-MySQL-VirtualBox:~$ uname
+Linux
+student@Ubuntu-MySQL-VirtualBox:~$ uname -a
+Linux Ubuntu-MySQL-VirtualBox 4.15.0-47-generic #50~16.04.1-Ubuntu SMP Fri Mar 15 16:06:21 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+student@Ubuntu-MySQL-VirtualBox:~$ hostnamectl
+   Static hostname: Ubuntu-MySQL-VirtualBox
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: 6917807b2dca43d681d86ffe5ca8e5d1
+           Boot ID: 88b486c658e84153b1091c317fde8f28
+    Virtualization: oracle
+  Operating System: Ubuntu 16.04.6 LTS
+            Kernel: Linux 4.15.0-47-generic
+      Architecture: x86-64
+student@Ubuntu-MySQL-VirtualBox:~$ lsb_release -a
+No LSB modules are available.
+Distributor ID:	Ubuntu
+Description:	Ubuntu 16.04.6 LTS
+Release:	16.04
+Codename:	xenial
+student@Ubuntu-MySQL-VirtualBox:~$ sudo apt update
+[sudo] пароль для student: 
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu xenial InRelease
+Сущ:2 http://ru.archive.ubuntu.com/ubuntu xenial-updates InRelease             
+Сущ:3 http://ru.archive.ubuntu.com/ubuntu xenial-backports InRelease           
+Сущ:4 http://ppa.launchpad.net/linuxuprising/java/ubuntu xenial InRelease      
+Сущ:5 http://ppa.launchpad.net/webupd8team/java/ubuntu xenial InRelease        
+Сущ:6 http://security.ubuntu.com/ubuntu xenial-security InRelease              
+Сущ:7 https://dbeaver.io/debs/dbeaver-ce  InRelease
+Чтение списков пакетов… Готово
+Построение дерева зависимостей       
+Чтение информации о состоянии… Готово
+Может быть обновлено 456 пакетов. Запустите «apt list --upgradable» для их показа.
+student@Ubuntu-MySQL-VirtualBox:~$ sudo apt install mc
+Чтение списков пакетов… Готово
+Построение дерева зависимостей       
+Чтение информации о состоянии… Готово
+Уже установлен пакет mc самой новой версии (3:4.8.15-2).
+Следующий пакет устанавливался автоматически и больше не требуется:
+  snapd-login-service
+Для его удаления используйте «sudo apt autoremove».
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 456 пакетов не обновлено.
+student@Ubuntu-MySQL-VirtualBox:~$
