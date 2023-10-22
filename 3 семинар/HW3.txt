@@ -1,0 +1,101 @@
+sasha@sasha-linux:~$ sudo adduser user1
+[sudo] пароль для sasha: 
+Добавляется пользователь «user1» ...
+Добавляется новая группа «user1» (1001) ...
+Добавляется новый пользователь «user1» (1001) в группу «user1» ...
+Создаётся домашний каталог «/home/user1» ...
+Копирование файлов из «/etc/skel» ...
+Новый пароль: 
+НЕУДАЧНЫЙ ПАРОЛЬ: Пароль является палиндромом
+Повторите ввод нового пароля: 
+passwd: пароль успешно обновлён
+Изменение информации о пользователе user1
+Введите новое значение или нажмите ENTER для выбора значения по умолчанию
+	Полное имя []: 
+	Номер комнаты []: 
+	Рабочий телефон []: 
+	Домашний телефон []: 
+	Другое []: 
+Данная информация корректна? [Y/n] y
+sasha@sasha-linux:~$ more /etc/passwd
+.
+.
+.
+user1:x:1001:1001:,,,:/home/user1:/bin/bash
+sasha@sasha-linux:~$ more /etc/group
+.
+.
+.
+sasha:x:1000:
+sambashare:x:136:sasha
+vboxsf:x:999:sasha
+vboxdrmipc:x:998:
+user1:x:1001:
+sasha@sasha-linux:~$ sudo more /etc/shadow
+.
+.
+.
+sasha:$y$j9T$6Z9oi.cBS/S2bKmyRLnrg.$GQgKdvexokfaJ9aPjrBoS04E5UDrJe3vfvA5sLb2DZ4:19645:0:99999:7:::
+sshd:*:19645:0:99999:7:::
+vboxadd:!:19645::::::
+user1:$y$j9T$jSm3lsaqpJIEDqAgo/cGV/$1DrfJ3eMMBeABHqSAKWvAKEqy9UQB6Euqqcg.KYfnx9:19652:0:99999:7:::
+sasha@sasha-linux:~$ sudo userdel -fr user1
+userdel: почтовый ящик user1 (/var/mail/user1) не найден
+sasha@sasha-linux:~$ more /etc/passwd
+.
+.
+.
+sasha@sasha-linux:~$ sudo groupadd group1
+sasha@sasha-linux:~$ groups
+sasha adm cdrom sudo dip plugdev lpadmin lxd sambashare vboxsf
+sasha@sasha-linux:~$ sudo adduser user2
+Добавляется пользователь «user2» ...
+Добавляется новая группа «user2» (1003) ...
+Добавляется новый пользователь «user2» (1002) в группу «user2» ...
+Создаётся домашний каталог «/home/user2» ...
+Копирование файлов из «/etc/skel» ...
+Новый пароль: 
+НЕУДАЧНЫЙ ПАРОЛЬ: Пароль является палиндромом
+Повторите ввод нового пароля: 
+passwd: пароль успешно обновлён
+Изменение информации о пользователе user2
+Введите новое значение или нажмите ENTER для выбора значения по умолчанию
+	Полное имя []: 
+	Номер комнаты []: 
+	Рабочий телефон []: 
+	Домашний телефон []: 
+	Другое []: 
+Данная информация корректна? [Y/n] y
+sasha@sasha-linux:~$ sudo usermod -G group1 user2
+sasha@sasha-linux:~$ groups user2
+user2 : user2 group1
+sasha@sasha-linux:~$ sudo usermod -aG group1 sasha
+sasha@sasha-linux:~$ groups sasha
+sasha : sasha adm cdrom sudo dip plugdev lpadmin lxd sambashare vboxsf group1
+sasha@sasha-linux:~$ sudo deluser user2 group1
+Удаляется пользователь «user2» из группы «group1» ...
+Готово.
+sasha@sasha-linux:~$ groups user2
+user2 : user2
+sasha@sasha-linux:~$ sudo usermod -aG sudo user2
+sasha@sasha-linux:~$ groups user2
+user2 : user2 sudo
+sasha@sasha-linux:~$ su user2
+Пароль: 
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+user2@sasha-linux:/home/sasha$ sudo apt update
+[sudo] пароль для user2: 
+.
+.
+.        
+Может быть обновлено 78 пакетов. Запустите «apt list --upgradable» для их показа.
+user2@sasha-linux:/home/sasha$ exit
+exit
+sasha@sasha-linux:~$ sudo deluser user2 sudo
+Удаляется пользователь «user2» из группы «sudo» ...
+Готово.
+sasha@sasha-linux:~$ groups user2
+user2 : user2
+sasha@sasha-linux:~$ 
