@@ -1,0 +1,37 @@
+91  sudo apt update
+92  cat /etc/apt/sources.list
+93  sudo apt update
+94  sudo apt search nginx
+95  sudo apt list nginx
+96  sudo apt install nginx
+97  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C300EE8C
+98  sudo echo "deb  http://ppa.launchpad.net/nginx/stable/ubuntu lucid main" >> /etc/apt/sources.list
+99  sudo apt update
+100  dpkg -l nginx
+101  sudo dpkg -r nginx
+102  dpkg -l nginx
+103  snap list
+104  snap search postman
+105  sudo snap install postman
+106  postman
+107  nano test.txt
+108  crontab -e
+109  crontab -l
+110  cat test.txt
+111  ls
+112  */10  * * * * cat /home/sasha/test.txt > /home/sasha/test.txt.bak
+113  cd etc/
+114  ls
+115  cat test.txt
+116  cat test.txt.bak
+117  ls
+118  cat etc/crontab
+119  crontab -e
+120  crontab --help
+129  cd /etc/apt
+130  crontab -e
+131  crontab -l
+132  crontab -e
+133  crontab -l
+134  history
+
