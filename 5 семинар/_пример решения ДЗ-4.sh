@@ -1,5 +1,7 @@
 ####################################################### Разбор ДЗ
 # 1 Подключить репозиторий с nginx любым удобным способом, установить nginx и потом удалить nginx, используя утилиту dpkg.
+sudo apt update
+
 // добавляем ключ
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C300EE8C
 
@@ -8,6 +10,18 @@ sudo echo "deb  http://ppa.launchpad.net/nginx/stable/ubuntu lucid main" >> /etc
 
 // обновляем список репозиториев
 sudo apt update
+
+sudo su
+
+apt-add-repository 'deb http://ppa.launchpad.net/nginx/stable/ubuntu lucid main'
+
+# 2-й вариант
+sudo echo "deb http://ppa.launchpad.net/nginx/stable/ubuntu lucid main" >> /etc/apt/sources.list
+exit
+
+sudo apt update
+# должно стать 4 репозитория
+
 
 // устанавливаем веб-севрер Nginx
 sudo apt install -y nginx

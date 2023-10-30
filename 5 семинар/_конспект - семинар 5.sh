@@ -1,3 +1,13 @@
+# в Windows cmd ищем адрес хоста
+ipconfig
+
+# копируем и вставляем в Linux - открываем на редактирование файл
+sudo nano /etc/hosts
+
+# указываем ip-адрес и через пробел win-host
+# пингуем машину Windows (4 раза)
+ping win-host - c 4
+
 #######################################################	iptables
 # если вдруг утилита не установлена
 sudo apt install iptables
@@ -8,12 +18,12 @@ sudo iptables -t filter -A INPUT -s 192.168.56.1 -j DROP
 sudo iptables -t filter -A INPUT -s 192.168.56.1 -j REJECT
 
 # очистим правила
-sudo iptables -F INPUT
+sudo iptables -F 
 
 # разрешим трафик с запрещенного IP-адреса
 sudo iptables -t filter -A INPUT -s 192.168.56.1 -j ACCEPT
 
-# посмотрим правила
+# посмотрим правила (цепочки)
 sudo iptables -L
 
 # Запрещаем исходящий трафик по протоколу
@@ -122,3 +132,6 @@ systemctl | wc -l
 
 # посмотрим инфо о службе SSH
 systemctl status sshd
+
+
+# В Linux Ubuntu есть удобная обертка над утилитой iptables, называется ufw. Многие системные администраторы выбирают ее. Почитать можно тут: https://losst.ru/nastrojka-ufw-ubuntu
