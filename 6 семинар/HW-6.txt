@@ -1,0 +1,11 @@
+91  sudo apt install nginx -y
+92  sudo nginx -t
+93  sudo apt install apache2 -y
+94  sudo apachectl -t
+95  sudo apt install mysql-server -y
+96  systemctl status mysql
+97  sudo mysql –u root -p
+98  sudo apt install php-mbstring -y
+99  sudo apt install phpmyadmin -y 
+100  history
+
