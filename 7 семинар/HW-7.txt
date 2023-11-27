@@ -1,11 +1,9 @@
-91  
-92  
-93  
-94  
-95  
-96  
-97  
-98  
-99  
-100 
+101 sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
+102 sudo apt install curl
+103 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+104 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+105 sudo apt update
+106 sudo apt install docker -y
+107 sudo apt install docker.io -y
+108 sudo docker run -d ubuntu
 
